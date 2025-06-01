@@ -342,51 +342,192 @@
         
         /* Print Styles */
         @media print {
-            body * {
-                visibility: hidden;
+            body {
+                font-size: 10pt; /* Base font size for print */
+                line-height: 1.4;
+                background-color: #fff; /* Ensure white background for print */
             }
-            .container, .container * {
-                visibility: visible;
+
+            body {
+                font-size: 10pt;
+                line-height: 1.4;
+                background-color: #fff;
+                color: #000; /* Ensure black text for print */
+                -webkit-print-color-adjust: exact; /* For consistent color printing */
+                print-color-adjust: exact;
             }
+
+            /* Hide elements not needed for print */
+            .nav-links, header::before, .social-links, footer, #printPdf {
+                display: none !important;
+            }
+
             .container {
-                width: 100%;
                 max-width: 100%;
-                padding: 0;
-                margin: 0;
-                position: absolute;
-                left: 0;
-                top: 0;
+                margin: 0 auto;
+                padding: 0 20px; /* Keep some padding for content */
             }
-            .nav-links, header::before, .social-links, footer {
-                display: none;
+
+            header {
+                background: none !important; /* Remove background gradient */
+                color: var(--dark);
+                padding: 20px 0;
+                text-align: left;
+                position: static; /* Remove relative positioning for print */
+                overflow: visible;
             }
-            .resume-card {
-                box-shadow: none;
-                margin: 10px 0;
-                padding: 5px 0;
-                page-break-inside: avoid;
+
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 5px;
+            }
+            .subtitle {
+                font-size: 1rem;
+                opacity: 1;
+            }
+            h2 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+            h3 {
+                font-size: 1rem;
+                margin-bottom: 5px;
+            }
+
+            .profile-section {
+                flex-direction: row; /* Keep photo and bio side-by-side if space allows */
+                align-items: flex-start;
+                margin-top: 0; /* Remove negative margin */
+                padding-top: 20px;
+                border-bottom: 1px solid #eee; /* Separator */
+                padding-bottom: 20px;
             }
             .profile-photo {
-                width: 120px;
-                height: 120px;
+                width: 80px;
+                height: 80px;
+                border-width: 2px;
+                margin-right: 20px;
+                margin-bottom: 0;
+                flex-shrink: 0;
             }
+            .profile-bio {
+                text-align: left;
+                font-size: 0.9rem;
+                margin-bottom: 0;
+            }
+
+            .resume-grid {
+                display: block; /* Stack sections vertically */
+                gap: 0; /* Remove gap */
+                padding: 20px 0;
+            }
+            .resume-card {
+                background: white;
+                border-radius: 0; /* Remove border-radius for print */
+                padding: 15px 0; /* Adjust padding */
+                box-shadow: none; /* Remove shadows */
+                margin-bottom: 15px; /* Space between sections */
+                border-bottom: 1px solid #eee; /* Separator */
+                page-break-inside: avoid; /* Prevent breaking inside cards */
+            }
+            .resume-card:last-child {
+                border-bottom: none; /* No border for the last card */
+            }
+            .resume-card.full-width {
+                grid-column: auto; /* Reset grid-column for block display */
+            }
+
+            .section-title {
+                margin-bottom: 15px;
+            }
+            .section-icon {
+                background: var(--dark) !important; /* Use dark color for icons */
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
+                margin-right: 10px;
+            }
+            .section-title::after {
+                background: var(--dark) !important; /* Use dark color for line */
+                margin-left: 10px;
+            }
+
+            .skill-item {
+                margin-bottom: 8px;
+            }
+            .skill-name {
+                font-size: 0.9rem;
+            }
+            .skill-bar {
+                height: 6px;
+                background: #e2e8f0; /* Light background for bar */
+            }
+            .skill-progress {
+                background: var(--dark) !important; /* Dark color for progress */
+            }
+
+            .experience-item, .education-item {
+                margin-bottom: 15px;
+                padding-left: 20px;
+            }
+            .experience-item::before, .education-item::before {
+                background: var(--dark) !important; /* Dark color for dots */
+                width: 8px;
+                height: 8px;
+                top: 6px;
+            }
+            .experience-item:not(:last-child)::after, .education-item:not(:last-child)::after {
+                background: #ccc; /* Lighter gray for connecting lines */
+                bottom: -10px; /* Adjust length of line */
+            }
+
+            .job-title, .degree {
+                font-size: 1rem;
+            }
+            .company, .university {
+                color: var(--dark); /* Ensure company/university names are dark */
+                font-size: 0.95rem;
+            }
+            .date {
+                font-size: 0.85rem;
+                color: #555; /* Slightly darker gray for dates */
+            }
+            .job-description, .job-highlights li {
+                font-size: 0.85rem;
+            }
+            .job-highlights {
+                padding-left: 15px; /* Adjust highlight indentation */
+            }
+
+            .contact-info {
+                margin-bottom: 10px;
+            }
+            .contact-icon {
+                background: var(--dark) !important; /* Dark color for contact icons */
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+                margin-right: 10px;
+            }
+            .contact-info h3 {
+                font-size: 0.95rem;
+                margin-bottom: 2px;
+            }
+            .contact-info p {
+                font-size: 0.85rem;
+            }
+
             a {
                 text-decoration: none;
                 color: inherit;
             }
-            .skill-progress {
-                background: var(--dark) !important;
+            a[href^="http"]:after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+                color: #555; /* Darker color for URLs */
             }
-            header {
-                background: white !important;
-                color: var(--dark);
-                padding: 20px 0;
-            }
-            .section-icon {
-                background: var(--dark) !important;
-            }
-            .section-title::after {
-                background: var(--dark) !important;
+            a[href^="#"]:after {
+                content: "";
             }
         }
         
@@ -438,57 +579,6 @@
         </section>
 
         <div class="resume-grid">
-            <section id="skills" class="resume-card">
-                <div class="section-title">
-                    <div class="section-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h2>Skills</h2>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Collections</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Customer Service</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Debt Resolution</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Communication</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 94%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Documentation</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 88%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Problem Solving</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 92%"></div>
-                    </div>
-                </div>
-            </section>
-
             <section id="experience" class="resume-card">
                 <div class="section-title">
                     <div class="section-icon">
@@ -537,6 +627,57 @@
                         <li>Resolved billing and service issues</li>
                         <li>Maintained high customer satisfaction ratings</li>
                     </ul>
+                </div>
+            </section>
+
+            <section id="skills" class="resume-card">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h2>Skills</h2>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Collections</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Customer Service</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Debt Resolution</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Communication</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 94%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Documentation</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Problem Solving</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
                 </div>
             </section>
 

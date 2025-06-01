@@ -32,6 +32,10 @@ A modern, responsive, and aesthetically designed resume landing page for Giselle
    git clone https://github.com/yourusername/giselle-bolonos-resume.git
    ```
 2. Open `index.html` in your browser
+   ```
+   python -m http.server
+   ```
+
 3. Customize with your own information:
    - Replace profile photo in `<img src="">`
    - Update experience/skills in respective sections
