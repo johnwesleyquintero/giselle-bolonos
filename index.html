@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giselle Bolonos - Virtual Assistant & Content Creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff6b8b;
+            --secondary: #a78bfa;
+            --dark: #2d3748;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fef6f9;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+            opacity: 0.2;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            position: relative;
+            color: var(--dark);
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -80px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-bio {
+            max-width: 700px;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        .resume-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .resume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resume-card.full-width {
+            grid-column: span 2;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin-left: 20px;
+        }
+        
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e2e8f0;
+            overflow: hidden;
+            width: 60%;
+            margin-left: 15px;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .experience-item::before, .education-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .experience-item:not(:last-child)::after, .education-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background: var(--gray);
+            opacity: 0.3;
+        }
+        
+        .job-title, .degree {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .company, .university {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(167, 139, 250, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+            background: white;
+        }
+        
+        @media (max-width: 768px) {
+            .resume-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resume-card.full-width {
+                grid-column: span 1;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Giselle Bolonos</h1>
+            <div class="subtitle">Virtual Assistant & Content Creator</div>
+            
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about" class="profile-section">
+            <div class="profile-photo">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQG3sLOQAA0PrA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727779158717?e=1754524800&v=beta&t=Phfx9elBYvRW8u0g5SeoOhScprXTEYE-3LA_SjRuf14" alt="Giselle Bolonos">
+            </div>
+            
+            <div class="profile-bio">
+                Passionate virtual assistant and creative content specialist with 5+ years of experience helping businesses streamline operations and enhance their digital presence. I combine organizational excellence with creative flair to deliver comprehensive support solutions.
+            </div>
+        </section>
+
+        <div class="resume-grid">
+            <section id="skills" class="resume-card">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h2>Skills</h2>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Content Creation</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Social Media Management</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Virtual Assistance</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Administrative Support</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Customer Service</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">Sales Support</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="resume-card">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h2>Experience</h2>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">Virtual Assistant</div>
+                    <div class="company">Evergreen Insurance Inc</div>
+                    <div class="date">May 2024 - Sep 2024</div>
+                    <p>Provide comprehensive administrative support, manage communications, and streamline operations for a busy insurance firm.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">Social Media Manager</div>
+                    <div class="company">ScaleSmart</div>
+                    <div class="date">2025 - Present</div>
+                    <p>Developed engaging content across multiple platforms, increasing audience engagement by 40%.</p>
+                </div>
+            </section>
+
+            <section id="education" class="resume-card">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2>Education</h2>
+                </div>
+                
+                <div class="education-item">
+                    <div class="degree">Bachelor of Secondary Education</div>
+                    <div class="university">University of Southeastern Philippines</div>
+                    <div class="date">2014 - 2018</div>
+                </div>
+            </section>
+
+            <section id="contact" class="resume-card full-width">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h2>Contact</h2>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>giselle.bolonos@email.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+1-555-123-4567</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div>
+                        <h3>LinkedIn</h3>
+                        <p><a href="[LinkedIn Profile URL]" style="color: var(--primary); text-decoration: none;">linkedin.com/in/gisellebolonos</a></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="social-links">
+            <a href="[LinkedIn Profile URL]" class="social-link" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="[Twitter Profile URL]" class="social-link" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="[Facebook Profile URL]" class="social-link" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="[Instagram Profile URL]" class="social-link" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Giselle Bolonos. All rights reserved.</p>
+    </footer>
+</body>
+</html>
