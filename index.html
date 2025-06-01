@@ -367,7 +367,7 @@
             }
 
             header {
-                background: none !important;
+                background: linear-gradient(135deg, rgba(255, 107, 139, 0.1), rgba(167, 139, 250, 0.1)) !important; /* Lighter gradient for print */
                 color: var(--dark);
                 padding: 20px 0;
                 text-align: left;
@@ -439,14 +439,14 @@
                 margin-bottom: 15px;
             }
             .section-icon {
-                background: var(--dark) !important;
+                background: linear-gradient(135deg, var(--primary), var(--secondary)) !important; /* Retain original gradient */
                 width: 25px;
                 height: 25px;
                 font-size: 0.8rem;
                 margin-right: 10px;
             }
             .section-title::after {
-                background: var(--dark) !important;
+                background: linear-gradient(to right, var(--primary), var(--secondary)) !important; /* Retain original gradient */
                 margin-left: 10px;
             }
 
@@ -461,7 +461,7 @@
                 background: #e2e8f0;
             }
             .skill-progress {
-                background: var(--dark) !important;
+                background: linear-gradient(to right, var(--primary), var(--secondary)) !important; /* Retain original gradient */
             }
 
             .experience-item, .education-item {
@@ -469,7 +469,7 @@
                 padding-left: 20px;
             }
             .experience-item::before, .education-item::before {
-                background: var(--dark) !important;
+                background: linear-gradient(135deg, var(--primary), var(--secondary)) !important; /* Retain original gradient */
                 width: 8px;
                 height: 8px;
                 top: 6px;
@@ -501,7 +501,7 @@
                 margin-bottom: 10px;
             }
             .contact-icon {
-                background: var(--dark) !important;
+                background: linear-gradient(135deg, var(--primary), var(--secondary)) !important; /* Retain original gradient */
                 width: 30px;
                 height: 30px;
                 font-size: 1rem;
