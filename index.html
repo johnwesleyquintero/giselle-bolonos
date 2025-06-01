@@ -340,6 +340,56 @@
             background: white;
         }
         
+        /* Print Styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .container, .container * {
+                visibility: visible;
+            }
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            .nav-links, header::before, .social-links, footer {
+                display: none;
+            }
+            .resume-card {
+                box-shadow: none;
+                margin: 10px 0;
+                padding: 5px 0;
+                page-break-inside: avoid;
+            }
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            .skill-progress {
+                background: var(--dark) !important;
+            }
+            header {
+                background: white !important;
+                color: var(--dark);
+                padding: 20px 0;
+            }
+            .section-icon {
+                background: var(--dark) !important;
+            }
+            .section-title::after {
+                background: var(--dark) !important;
+            }
+        }
+        
         @media (max-width: 768px) {
             .resume-grid {
                 grid-template-columns: 1fr;
@@ -363,7 +413,7 @@
     <header>
         <div class="container">
             <h1>Giselle Bolonos</h1>
-            <div class="subtitle">Virtual Assistant & Customer Service Professional</div>
+            <div class="subtitle">Customer Service & Collections Professional</div>
             
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
@@ -371,6 +421,7 @@
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <a href="#" class="nav-link" id="printPdf">Print PDF</a>
             </div>
         </div>
     </header>
@@ -378,11 +429,11 @@
     <div class="container">
         <section id="about" class="profile-section">
             <div class="profile-photo">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQG3sLOQAA0PrA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727779158705?e=1754524800&v=beta&t=qrW_G9esrxuPdNptOWXMSD1hyznB4zLCMJQ2uB7J6tA" alt="Giselle Bolonos">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQG3sLOQAA0PrA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727779158717?e=1754524800&v=beta&t=Phfx9elBYvRW8u0g5SeoOhScprXTEYE-3LA_SjRuf14" alt="Giselle Bolonos">
             </div>
             
             <div class="profile-bio">
-                Dedicated customer service professional and virtual assistant with experience in insurance and telecommunications. I combine strong communication skills with technical expertise to deliver exceptional support and administrative services.
+                Experienced customer service and collections professional with expertise in debt resolution, client communications, and administrative support. Skilled in handling sensitive financial matters with professionalism and tact.
             </div>
         </section>
 
@@ -396,30 +447,23 @@
                 </div>
                 
                 <div class="skill-item">
-                    <div class="skill-name">Virtual Assistance</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Customer Service</div>
+                    <div class="skill-name">Collections</div>
                     <div class="skill-bar">
                         <div class="skill-progress" style="width: 90%"></div>
                     </div>
                 </div>
                 
                 <div class="skill-item">
-                    <div class="skill-name">Support Services</div>
+                    <div class="skill-name">Customer Service</div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 92%"></div>
+                        <div class="skill-progress" style="width: 95%"></div>
                     </div>
                 </div>
                 
                 <div class="skill-item">
-                    <div class="skill-name">Virtual Administrative Support</div>
+                    <div class="skill-name">Debt Resolution</div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 88%"></div>
+                        <div class="skill-progress" style="width: 85%"></div>
                     </div>
                 </div>
                 
@@ -431,9 +475,16 @@
                 </div>
                 
                 <div class="skill-item">
+                    <div class="skill-name">Documentation</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
                     <div class="skill-name">Problem Solving</div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
+                        <div class="skill-progress" style="width: 92%"></div>
                     </div>
                 </div>
             </section>
@@ -447,10 +498,17 @@
                 </div>
                 
                 <div class="experience-item">
-                    <div class="job-title">Social Media Manager</div>
-                    <div class="company">ScaleSmart</div>
-                    <div class="date">2025 - Present</div>
-                    <p>Developed engaging content across multiple platforms, increasing audience engagement by 40%.</p>
+                    <div class="job-title">Outbound Agent</div>
+                    <div class="company">Collections Agency</div>
+                    <div class="date">Oct 2024 - May 2025</div>
+                    <div class="job-description">
+                        Contacted debtors to follow up on outstanding balances and facilitate account resolution.
+                    </div>
+                    <ul class="job-highlights">
+                        <li>Advised coordination with issuing firms for debt resolution</li>
+                        <li>Documented all interactions to support effective account management</li>
+                        <li>Maintained professional communication in sensitive financial situations</li>
+                    </ul>
                 </div>
                 
                 <div class="experience-item">
@@ -458,12 +516,12 @@
                     <div class="company">Evergreen Insurance Inc</div>
                     <div class="date">May 2024 - Sep 2024 · Full-time</div>
                     <div class="job-description">
-                        Providing comprehensive virtual administrative support and services for insurance operations.
+                        Provided comprehensive virtual administrative support for insurance operations.
                     </div>
                     <ul class="job-highlights">
-                        <li>Manage client communications and policy documentation</li>
-                        <li>Coordinate schedules and appointments</li>
-                        <li>Process insurance claims and paperwork</li>
+                        <li>Managed client communications and policy documentation</li>
+                        <li>Coordinated schedules and appointments</li>
+                        <li>Processed insurance claims and paperwork</li>
                     </ul>
                 </div>
                 
@@ -553,7 +611,23 @@
     </div>
 
     <footer>
-        <p>&copy; 2023 Giselle Bolonos. All rights reserved.</p>
+        <p>&copy; <span id="currentYear"></span> Giselle Bolonos. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Print PDF functionality
+        document.getElementById('printPdf').addEventListener('click', function(e) {
+            e.preventDefault();
+            const originalTitle = document.title;
+            document.title = "Giselle_Bolonos_Resume_" + new Date().getFullYear();
+            window.print();
+            setTimeout(() => {
+                document.title = originalTitle;
+            }, 500);
+        });
+
+        // Update copyright year automatically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
