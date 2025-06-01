@@ -342,18 +342,16 @@
         
         /* Print Styles */
         @media print {
-            body {
-                font-size: 10pt; /* Base font size for print */
-                line-height: 1.4;
-                background-color: #fff; /* Ensure white background for print */
+            html, body {
+                height: auto !important;
+                overflow: visible !important;
             }
-
             body {
                 font-size: 10pt;
                 line-height: 1.4;
                 background-color: #fff;
-                color: #000; /* Ensure black text for print */
-                -webkit-print-color-adjust: exact; /* For consistent color printing */
+                color: #000;
+                -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
 
@@ -365,15 +363,15 @@
             .container {
                 max-width: 100%;
                 margin: 0 auto;
-                padding: 0 20px; /* Keep some padding for content */
+                padding: 0 20px;
             }
 
             header {
-                background: none !important; /* Remove background gradient */
+                background: none !important;
                 color: var(--dark);
                 padding: 20px 0;
                 text-align: left;
-                position: static; /* Remove relative positioning for print */
+                position: static;
                 overflow: visible;
             }
 
@@ -395,11 +393,11 @@
             }
 
             .profile-section {
-                flex-direction: row; /* Keep photo and bio side-by-side if space allows */
+                flex-direction: row;
                 align-items: flex-start;
-                margin-top: 0; /* Remove negative margin */
+                margin-top: 0;
                 padding-top: 20px;
-                border-bottom: 1px solid #eee; /* Separator */
+                border-bottom: 1px solid #eee;
                 padding-bottom: 20px;
             }
             .profile-photo {
@@ -417,38 +415,38 @@
             }
 
             .resume-grid {
-                display: block; /* Stack sections vertically */
-                gap: 0; /* Remove gap */
+                display: block;
+                gap: 0;
                 padding: 20px 0;
             }
             .resume-card {
                 background: white;
-                border-radius: 0; /* Remove border-radius for print */
-                padding: 15px 0; /* Adjust padding */
-                box-shadow: none; /* Remove shadows */
-                margin-bottom: 15px; /* Space between sections */
-                border-bottom: 1px solid #eee; /* Separator */
-                page-break-inside: avoid; /* Prevent breaking inside cards */
+                border-radius: 0;
+                padding: 15px 0;
+                box-shadow: none;
+                margin-bottom: 15px;
+                border-bottom: 1px solid #eee;
+                page-break-inside: avoid;
             }
             .resume-card:last-child {
-                border-bottom: none; /* No border for the last card */
+                border-bottom: none;
             }
             .resume-card.full-width {
-                grid-column: auto; /* Reset grid-column for block display */
+                grid-column: auto;
             }
 
             .section-title {
                 margin-bottom: 15px;
             }
             .section-icon {
-                background: var(--dark) !important; /* Use dark color for icons */
+                background: var(--dark) !important;
                 width: 25px;
                 height: 25px;
                 font-size: 0.8rem;
                 margin-right: 10px;
             }
             .section-title::after {
-                background: var(--dark) !important; /* Use dark color for line */
+                background: var(--dark) !important;
                 margin-left: 10px;
             }
 
@@ -460,10 +458,10 @@
             }
             .skill-bar {
                 height: 6px;
-                background: #e2e8f0; /* Light background for bar */
+                background: #e2e8f0;
             }
             .skill-progress {
-                background: var(--dark) !important; /* Dark color for progress */
+                background: var(--dark) !important;
             }
 
             .experience-item, .education-item {
@@ -471,39 +469,39 @@
                 padding-left: 20px;
             }
             .experience-item::before, .education-item::before {
-                background: var(--dark) !important; /* Dark color for dots */
+                background: var(--dark) !important;
                 width: 8px;
                 height: 8px;
                 top: 6px;
             }
             .experience-item:not(:last-child)::after, .education-item:not(:last-child)::after {
-                background: #ccc; /* Lighter gray for connecting lines */
-                bottom: -10px; /* Adjust length of line */
+                background: #ccc;
+                bottom: -10px;
             }
 
             .job-title, .degree {
                 font-size: 1rem;
             }
             .company, .university {
-                color: var(--dark); /* Ensure company/university names are dark */
+                color: var(--dark);
                 font-size: 0.95rem;
             }
             .date {
                 font-size: 0.85rem;
-                color: #555; /* Slightly darker gray for dates */
+                color: #555;
             }
             .job-description, .job-highlights li {
                 font-size: 0.85rem;
             }
             .job-highlights {
-                padding-left: 15px; /* Adjust highlight indentation */
+                padding-left: 15px;
             }
 
             .contact-info {
                 margin-bottom: 10px;
             }
             .contact-icon {
-                background: var(--dark) !important; /* Dark color for contact icons */
+                background: var(--dark) !important;
                 width: 30px;
                 height: 30px;
                 font-size: 1rem;
@@ -524,7 +522,7 @@
             a[href^="http"]:after {
                 content: " (" attr(href) ")";
                 font-size: 0.8em;
-                color: #555; /* Darker color for URLs */
+                color: #555;
             }
             a[href^="#"]:after {
                 content: "";
@@ -709,7 +707,7 @@
                     </div>
                     <div>
                         <h3>Email</h3>
-                        <p>giselle.bolonos@email.com</p>
+                        <p>gisellebolonos123@email.com</p>
                     </div>
                 </div>
                 
@@ -729,14 +727,14 @@
                     </div>
                     <div>
                         <h3>LinkedIn</h3>
-                        <p><a href="[LinkedIn Profile URL]" style="color: var(--primary); text-decoration: none;">linkedin.com/in/gisellebolonos</a></p>
+                        <p><a href="https://www.linkedin.com/in/giselle-bolonos-47a45b330/" style="color: var(--primary); text-decoration: none;">linkedin.com/in/giselle-bolonos-47a45b330/</a></p>
                     </div>
                 </div>
             </section>
         </div>
 
         <div class="social-links">
-            <a href="[LinkedIn Profile URL]" class="social-link" target="_blank">
+            <a href="https://www.linkedin.com/in/giselle-bolonos-47a45b330/" class="social-link" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
             </a>
             <a href="[Twitter Profile URL]" class="social-link" target="_blank">
